@@ -32,10 +32,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      body: Center(
-        child: Column(
+    return Scaffold(//移出顶部状态安全区域
+      body: MediaQuery.removePadding(
+        removeTop: true,//移出哪边得安全区域
+        context: context,
+        child: ListView(
           children: <Widget>[
+            // Banner
             Container(
               height: 180,
               child: Swiper( //轮播图
@@ -48,8 +51,12 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
                 pagination: SwiperPagination(),//当前页指示器
-
               ),
+            ),
+
+            Container(
+              child: Text("占位"),
+              height: 1000,
             ),
           ],
         ),

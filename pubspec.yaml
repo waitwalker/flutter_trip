@@ -27,6 +27,12 @@ dependencies:
   # 轮播组件
   flutter_swiper: ^1.1.6
 
+  # 网络
+  http: ^0.12.0+2
+
+  # 用户偏好存储
+  shared_preferences: ^0.5.3+1
+
 
 dev_dependencies:
   flutter_test:

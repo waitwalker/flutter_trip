@@ -37,12 +37,17 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: <Widget>[
             Container(
+              height: 180,
               child: Swiper( //轮播图
                 itemCount: _imageUlrs.length,
                 autoplay: true,//自动播放
                 itemBuilder: (BuildContext context, int index) { //显示得Widget
-                  return Image.network(_imageUlrs[index]);
+                  return Image.network(
+                    _imageUlrs[index],
+                    fit: BoxFit.fill,//图片适配方式
+                  );
                 },
+                pagination: SwiperPagination(),//当前页指示器
 
               ),
             ),

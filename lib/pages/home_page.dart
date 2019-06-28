@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_trip/data_manager/home_data_manager.dart';
+import 'package:flutter_trip/models/common_model.dart';
+import 'package:flutter_trip/widget/grid_nav.dart';
+import 'package:flutter_trip/models/home_model.dart';
+import 'package:flutter_trip/widget/local_nav.dart';
 
 
 // 定义一个常量
@@ -36,6 +41,12 @@ class _HomePageState extends State<HomePage> {
   // 顶部导航默认值
   double appBarAlpha = 0;
 
+  String resultString = "";
+
+  // 首页数据模型
+  HomeModel homeModel;
+  List<CommonModel> localNavList = [];
+
   /**
    * @method  监听滚动范围
    * @description 描述一下方法的作用
@@ -61,9 +72,50 @@ class _HomePageState extends State<HomePage> {
     print("首页appbar 滚动透明度:$appBarAlpha");
   }
 
+  /**
+   * @method  获取首页数据
+   * @description 描述一下方法的作用
+   * @date: 2019-06-28 13:52
+   * @author: 作者名
+   * @param
+   * @return
+   */
+  loadData() async {
+    // 一种方式
+    try {
+      HomeModel homeM = await HomeDataManager.fetch();
+      setState(() {
+        localNavList = homeM.localNavList;
+      });
+    } catch (e) {
+      setState(() {
+        resultString = e.toString();
+      });
+    }
+
+    // 另一种方式
+//    HomeDataManager.fetch().then((result){
+//      setState(() {
+//        resultString = json.encode(result);
+//      });
+//    }).catchError((e){
+//      setState(() {
+//        resultString = e.toString();
+//      });
+//    });
+  }
+
+
+  @override
+  void initState() {
+    loadData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(//移出顶部状态安全区域
+      backgroundColor: Color(0xfff2f2f2),
       body: Stack( //层叠布局 将自定义得appBar放在 列表上面
         children: <Widget>[
           // 移除ListView距离屏幕顶部得边距
@@ -83,11 +135,11 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 180,
                     child: Swiper( //轮播图
-                      itemCount: _imageUlrs.length,
+                      itemCount: homeModel != null ? homeModel.bannerList.length : _imageUlrs.length,
                       autoplay: true,//自动播放
                       itemBuilder: (BuildContext context, int index) { //显示得Widget
                         return Image.network(
-                          _imageUlrs[index],
+                          homeModel != null ? homeModel.bannerList[index].icon : _imageUlrs[index],
                           fit: BoxFit.fill,//图片适配方式
                         );
                       },
@@ -95,8 +147,15 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
 
+                  // 球区入口
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(7, 4, 7, 4),
+                    child: LocalNav(localNavList: localNavList),
+                  ),
+
+//                  GridNav(gridNavModel: homeModel.gridNav ?? null),
                   Container(
-                    child: Text("占位"),
+                    child: Text(resultString),
                     height: 1000,
                   ),
                 ],

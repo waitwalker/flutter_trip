@@ -38,7 +38,7 @@ class HomeModel {
     var localNavListJson = json["localNavList"] as List;
     List<CommonModel> localNavList = localNavListJson.map((i) => CommonModel.fromJson(i)).toList();
 
-    var bannerListJson = json["bannervList"] as List;
+    var bannerListJson = json["bannerList"] as List;
     List<CommonModel> bannerList = bannerListJson.map((i) => CommonModel.fromJson(i)).toList();
 
     var subNavListJson = json["subNavList"] as List;

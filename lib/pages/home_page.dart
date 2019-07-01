@@ -150,79 +150,94 @@ class _HomePageState extends State<HomePage> {
                           _onScroll(scrollNotification.metrics.pixels);
                         }
                       },
-                      child: ListView(
-                        children: <Widget>[
-                          // Banner
-                          Container(
-                            height: 180,
-                            child: Swiper( //轮播图
-                              itemCount: bannerList.length,
-                              autoplay: true,//自动播放
-                              itemBuilder: (BuildContext context, int index) { //显示得Widget
-                                return GestureDetector(
-                                  child: Image.network(
-                                    bannerList[index].icon,
-                                    fit: BoxFit.fill,//图片适配方式
-                                  ),
-                                  onTap: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                                      CommonModel model = bannerList[index];
-                                      return WebView(url: model.url,statusBarColor: model.statusBarColor,hideAppBar: model.hideAppBar,);
-                                    }));
-                                  },
-                                );
-                              },
-                              pagination: SwiperPagination(),//当前页指示器
-                            ),
-                          ),
-
-                          // 球区入口
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(7, 4, 7, 4),
-                            child: LocalNav(localNavList: localNavList),
-                          ),
-
-                          // 中间卡片
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
-                            child: GridNav(gridNavModel: gridNavModel),
-                          ),
-
-                          // 活动入口上面部分
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
-                            child: SubNav(subNavList: subNavList),
-                          ),
-
-                          // 活动入口
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
-                            child: Salesbox(salesBox: salesBoxModel),
-                          ),
-                        ],
-                      ),
+                      child: _listView,
                     ),
                     onRefresh: _handleRefresh
                 ),
               ),
 
               // appBar
-              Opacity(
-                opacity: appBarAlpha,
-                child: Container(
-                  height: 80,
-                  decoration: BoxDecoration(color: Colors.white),//装饰器
-                  child: Center(
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 20),
-                      child: Text("首页"),
-                    ),
-                  ),
-                ),
-              ),
+              _appBar,
             ],
           ),
           isLoading: _loading),
+    );
+  }
+
+  // 列表
+  Widget get _listView {
+    return ListView(
+      children: <Widget>[
+        // Banner
+        _banner,
+
+        // 球区入口
+        Padding(
+          padding: const EdgeInsets.fromLTRB(7, 4, 7, 4),
+          child: LocalNav(localNavList: localNavList),
+        ),
+
+        // 中间卡片
+        Padding(
+          padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+          child: GridNav(gridNavModel: gridNavModel),
+        ),
+
+        // 活动入口上面部分
+        Padding(
+          padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+          child: SubNav(subNavList: subNavList),
+        ),
+
+        // 活动入口
+        Padding(
+          padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+          child: Salesbox(salesBox: salesBoxModel),
+        ),
+      ],
+    );
+  }
+
+  // appbar
+  Widget get _appBar {
+    return Opacity(
+      opacity: appBarAlpha,
+      child: Container(
+        height: 80,
+        decoration: BoxDecoration(color: Colors.white),//装饰器
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: Text("首页"),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // banner
+  Widget get _banner {
+    return Container(
+      height: 180,
+      child: Swiper( //轮播图
+        itemCount: bannerList.length,
+        autoplay: true,//自动播放
+        itemBuilder: (BuildContext context, int index) { //显示得Widget
+          return GestureDetector(
+            child: Image.network(
+              bannerList[index].icon,
+              fit: BoxFit.fill,//图片适配方式
+            ),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                CommonModel model = bannerList[index];
+                return WebView(url: model.url,statusBarColor: model.statusBarColor,hideAppBar: model.hideAppBar,);
+              }));
+            },
+          );
+        },
+        pagination: SwiperPagination(),//当前页指示器
+      ),
     );
   }
 }

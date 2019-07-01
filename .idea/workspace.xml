@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="579b650b-504b-4771-9971-1fd94f18ad2f" name="Default Changelist" comment="sub nav completed">
-      <change afterPath="$PROJECT_DIR$/lib/widget/loading_container.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_page.dart" afterDir="false" />
     </list>
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/pages/home_page.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="168" column="76" selection-start-line="168" selection-start-column="76" selection-end-line="168" selection-end-column="76" />
+            <state relative-caret-position="276">
+              <caret line="226" column="21" lean-forward="true" selection-start-line="226" selection-start-column="21" selection-end-line="226" selection-end-column="21" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -92,8 +92,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="21" />
-    <option name="y" value="42" />
+    <option name="x" value="193" />
+    <option name="y" value="32" />
     <option name="width" value="1381" />
     <option name="height" value="774" />
   </component>
@@ -262,10 +262,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="21" y="42" width="1381" height="774" extended-state="0" />
+    <frame x="193" y="32" width="1381" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24645257" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24645257" />
       <window_info id="Captures" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -279,7 +279,7 @@
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3292683" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="4" weight="0.3292683" />
-      <window_info anchor="bottom" id="Debug" order="5" visible="true" weight="0.45014662" />
+      <window_info active="true" anchor="bottom" id="Debug" order="5" visible="true" weight="0.45014662" />
       <window_info anchor="bottom" id="Terminal" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="8" side_tool="true" />
@@ -586,8 +586,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/home_page.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="168" column="76" selection-start-line="168" selection-start-column="76" selection-end-line="168" selection-end-column="76" />
+        <state relative-caret-position="276">
+          <caret line="226" column="21" lean-forward="true" selection-start-line="226" selection-start-column="21" selection-end-line="226" selection-end-column="21" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

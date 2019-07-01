@@ -1,0 +1,6 @@
+framework module flutter_webview_plugin {
+  umbrella header "flutter_webview_plugin-umbrella.h"
+
+  export *
+  module * { export * }
+}

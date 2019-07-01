@@ -9,6 +9,8 @@ import 'package:flutter_trip/models/home_model.dart';
 import 'package:flutter_trip/widget/local_nav.dart';
 import 'package:flutter_trip/widget/sub_nav.dart';
 import 'package:flutter_trip/widget/sales_box.dart';
+import 'package:flutter_trip/widget/loading_container.dart';
+import 'package:flutter_trip/widget/webview.dart';
 
 
 
@@ -52,8 +54,10 @@ class _HomePageState extends State<HomePage> {
   HomeModel homeModel;
   List<CommonModel> localNavList = [];
   List<CommonModel> subNavList = [];
+  List<CommonModel> bannerList = [];
   GridNavModel gridNavModel;
   SalesBoxModel salesBoxModel;
+  bool _loading = true;
 
   /**
    * @method  监听滚动范围
@@ -88,7 +92,7 @@ class _HomePageState extends State<HomePage> {
    * @param
    * @return
    */
-  loadData() async {
+  Future<Null> _handleRefresh() async {
     // 一种方式
     try {
       HomeModel homeM = await HomeDataManager.fetch();
@@ -97,12 +101,16 @@ class _HomePageState extends State<HomePage> {
         gridNavModel = homeM.gridNav;
         subNavList = homeM.subNavList;
         salesBoxModel = homeM.salesBox;
+        bannerList = homeM.bannerList;
+        _loading = false;
       });
     } catch (e) {
       setState(() {
         resultString = e.toString();
+        _loading = false;
       });
     }
+    return null;
 
     // 另一种方式
 //    HomeDataManager.fetch().then((result){
@@ -119,7 +127,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    loadData();
+    _handleRefresh();
     super.initState();
   }
 
@@ -127,86 +135,94 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(//移出顶部状态安全区域
       backgroundColor: Color(0xfff2f2f2),
-      body: Stack( //层叠布局 将自定义得appBar放在 列表上面
-        children: <Widget>[
-          // 移除ListView距离屏幕顶部得边距
-          MediaQuery.removePadding(
-            removeTop: true,//移出哪边得安全区域
-            context: context,
-            child: NotificationListener(
-              onNotification: (scrollNotification){ //监听滚动
-                // 滚动变化 才监听 && 第0个元素发生滚动得时候才监听
-                if (scrollNotification is ScrollUpdateNotification && scrollNotification.depth == 0) {
-                  _onScroll(scrollNotification.metrics.pixels);
-                }
-              },
-              child: ListView(
-                children: <Widget>[
-                  // Banner
-                  Container(
-                    height: 180,
-                    child: Swiper( //轮播图
-                      itemCount: homeModel != null ? homeModel.bannerList.length : _imageUlrs.length,
-                      autoplay: true,//自动播放
-                      itemBuilder: (BuildContext context, int index) { //显示得Widget
-                        return Image.network(
-                          homeModel != null ? homeModel.bannerList[index].icon : _imageUlrs[index],
-                          fit: BoxFit.fill,//图片适配方式
-                        );
+      body: LoadingContainer(
+          child: Stack( //层叠布局 将自定义得appBar放在 列表上面
+            children: <Widget>[
+              // 移除ListView距离屏幕顶部得边距
+              MediaQuery.removePadding(
+                removeTop: true,//移出哪边得安全区域
+                context: context,
+                child: RefreshIndicator(
+                    child: NotificationListener(
+                      onNotification: (scrollNotification){ //监听滚动
+                        // 滚动变化 才监听 && 第0个元素发生滚动得时候才监听
+                        if (scrollNotification is ScrollUpdateNotification && scrollNotification.depth == 0) {
+                          _onScroll(scrollNotification.metrics.pixels);
+                        }
                       },
-                      pagination: SwiperPagination(),//当前页指示器
+                      child: ListView(
+                        children: <Widget>[
+                          // Banner
+                          Container(
+                            height: 180,
+                            child: Swiper( //轮播图
+                              itemCount: bannerList.length,
+                              autoplay: true,//自动播放
+                              itemBuilder: (BuildContext context, int index) { //显示得Widget
+                                return GestureDetector(
+                                  child: Image.network(
+                                    bannerList[index].icon,
+                                    fit: BoxFit.fill,//图片适配方式
+                                  ),
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                                      CommonModel model = bannerList[index];
+                                      return WebView(url: model.url,statusBarColor: model.statusBarColor,hideAppBar: model.hideAppBar,);
+                                    }));
+                                  },
+                                );
+                              },
+                              pagination: SwiperPagination(),//当前页指示器
+                            ),
+                          ),
+
+                          // 球区入口
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(7, 4, 7, 4),
+                            child: LocalNav(localNavList: localNavList),
+                          ),
+
+                          // 中间卡片
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+                            child: GridNav(gridNavModel: gridNavModel),
+                          ),
+
+                          // 活动入口上面部分
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+                            child: SubNav(subNavList: subNavList),
+                          ),
+
+                          // 活动入口
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+                            child: Salesbox(salesBox: salesBoxModel),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-
-                  // 球区入口
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(7, 4, 7, 4),
-                    child: LocalNav(localNavList: localNavList),
-                  ),
-
-                  // 中间卡片
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
-                    child: GridNav(gridNavModel: gridNavModel),
-                  ),
-
-                  // 活动入口上面部分
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
-                    child: SubNav(subNavList: subNavList),
-                  ),
-
-                  // 活动入口
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
-                    child: Salesbox(salesBox: salesBoxModel),
-                  ),
-
-                  Container(
-                    child: Text(resultString),
-                    height: 1000,
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // appBar
-          Opacity(
-            opacity: appBarAlpha,
-            child: Container(
-              height: 80,
-              decoration: BoxDecoration(color: Colors.white),//装饰器
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text("首页"),
+                    onRefresh: _handleRefresh
                 ),
               ),
-            ),
+
+              // appBar
+              Opacity(
+                opacity: appBarAlpha,
+                child: Container(
+                  height: 80,
+                  decoration: BoxDecoration(color: Colors.white),//装饰器
+                  child: Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: Text("首页"),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+          isLoading: _loading),
     );
   }
 }

@@ -93,7 +93,8 @@ class SubNav extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                   ),
-                ),)
+                ),
+              ),
             ],
           ),
         )

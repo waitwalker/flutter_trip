@@ -3,10 +3,12 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_trip/data_manager/home_data_manager.dart';
 import 'package:flutter_trip/models/common_model.dart';
 import 'package:flutter_trip/models/grid_nav_model.dart';
+import 'package:flutter_trip/models/sales_box_model.dart';
 import 'package:flutter_trip/widget/grid_nav.dart';
 import 'package:flutter_trip/models/home_model.dart';
 import 'package:flutter_trip/widget/local_nav.dart';
 import 'package:flutter_trip/widget/sub_nav.dart';
+import 'package:flutter_trip/widget/sales_box.dart';
 
 
 
@@ -51,6 +53,7 @@ class _HomePageState extends State<HomePage> {
   List<CommonModel> localNavList = [];
   List<CommonModel> subNavList = [];
   GridNavModel gridNavModel;
+  SalesBoxModel salesBoxModel;
 
   /**
    * @method  监听滚动范围
@@ -93,6 +96,7 @@ class _HomePageState extends State<HomePage> {
         localNavList = homeM.localNavList;
         gridNavModel = homeM.gridNav;
         subNavList = homeM.subNavList;
+        salesBoxModel = homeM.salesBox;
       });
     } catch (e) {
       setState(() {
@@ -166,10 +170,16 @@ class _HomePageState extends State<HomePage> {
                     child: GridNav(gridNavModel: gridNavModel),
                   ),
 
-                  // 活动入口
+                  // 活动入口上面部分
                   Padding(
                     padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
                     child: SubNav(subNavList: subNavList),
+                  ),
+
+                  // 活动入口
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+                    child: Salesbox(salesBox: salesBoxModel),
                   ),
 
                   Container(

@@ -33,6 +33,9 @@ dependencies:
   # 用户偏好存储
   shared_preferences: ^0.5.3+1
 
+  # webview
+  flutter_webview_plugin: ^0.3.5
+
 
 dev_dependencies:
   flutter_test:

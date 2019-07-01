@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_trip/data_manager/home_data_manager.dart';
 import 'package:flutter_trip/models/common_model.dart';
+import 'package:flutter_trip/models/grid_nav_model.dart';
 import 'package:flutter_trip/widget/grid_nav.dart';
 import 'package:flutter_trip/models/home_model.dart';
 import 'package:flutter_trip/widget/local_nav.dart';
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
   // 首页数据模型
   HomeModel homeModel;
   List<CommonModel> localNavList = [];
+  GridNavModel gridNavModel;
 
   /**
    * @method  监听滚动范围
@@ -86,6 +88,7 @@ class _HomePageState extends State<HomePage> {
       HomeModel homeM = await HomeDataManager.fetch();
       setState(() {
         localNavList = homeM.localNavList;
+        gridNavModel = homeM.gridNav;
       });
     } catch (e) {
       setState(() {
@@ -153,7 +156,12 @@ class _HomePageState extends State<HomePage> {
                     child: LocalNav(localNavList: localNavList),
                   ),
 
-//                  GridNav(gridNavModel: homeModel.gridNav ?? null),
+                  // 中间卡片
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+                    child: GridNav(gridNavModel: gridNavModel),
+                  ),
+
                   Container(
                     child: Text(resultString),
                     height: 1000,

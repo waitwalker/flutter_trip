@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences" "${PODS_ROOT}/../.symlinks/flutter/ios"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin" "${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences" "${PODS_ROOT}/../.symlinks/flutter/ios"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "Flutter" -framework "shared_preferences"
+OTHER_LDFLAGS = $(inherited) -framework "Flutter" -framework "flutter_webview_plugin" -framework "shared_preferences"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

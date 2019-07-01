@@ -162,14 +162,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/shared_preferences/shared_preferences.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/shared_preferences/shared_preferences.framework"
 fi
 if [[ "$CONFIGURATION" == "Profile" ]]; then
   install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/shared_preferences/shared_preferences.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

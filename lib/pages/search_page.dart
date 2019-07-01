@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_trip/data_manager/search_data_manager.dart';
+import 'package:flutter_trip/models/search_model.dart';
+import 'package:flutter_trip/widget/webview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_trip/widget/search_bar.dart';
 
@@ -13,10 +16,18 @@ import 'package:flutter_trip/widget/search_bar.dart';
   * @UpdateRemark:   更新说明：
   * @Version:        1.0
  */
+
+const kSearchUrl = "https://m.ctrip.com/restapi/h5api/searchapp/search?source=mobileweb&action=autocomplete&contenType=json&keyword=";
 class SearchPage extends StatefulWidget {
+  final bool hideLeft;
+  final String searchUrl;
+  final String keyword;
+  final String hint;
+
+  SearchPage({this.hideLeft, this.searchUrl=kSearchUrl, this.keyword, this.hint});
+
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _SearchPageState();
   }
 }
@@ -26,6 +37,8 @@ class _SearchPageState extends State<SearchPage> {
   String name = "四中";
 
   ScrollController _scrollController = ScrollController();
+  String keyword;
+  SearchModel searchModel;
 
   @override
   void initState() {
@@ -58,17 +71,21 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Column(
         children: <Widget>[
-          SearchBar(
-            hideLeft: true,
-            defaultText: "",
-            hint: "123",
-            leftButtonClick: (){
-              Navigator.pop(context);
-            },
-            onChanged: _onTextChange,
+          _appBar(),
+          Expanded(
+            flex: 1,
+            child: MediaQuery.removeViewPadding(
+              removeTop: true,
+              context: context,
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index){
+                  return _item(index);
+                },
+                itemCount: searchModel?.data?.length ?? 0,
+              ),
+            ),
           ),
         ],
       ),
@@ -76,9 +93,92 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   _onTextChange(text) {
-
+    keyword = text;
+    if (text.length == 0) {
+      setState(() {
+        searchModel = null;
+      });
+      return;
+    }
+    
+    String url = widget.searchUrl + text;
+    SearchDataManager.fetch(url,text).then((SearchModel model){
+      if (model.keyword == keyword) {
+        setState(() {
+          searchModel = model;
+        });
+      }
+    }).catchError((e){
+      print("搜索遇到错误:$e");
+    });
   }
 
+  _appBar() {
+    return Column(
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0x66000000),Colors.transparent],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            )
+          ),
+          child: Container(
+            padding: EdgeInsets.only(top: 20),
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.white
+            ),
+            child: SearchBar(
+              hideLeft: widget.hideLeft,
+              defaultText: widget.keyword,
+              hint: widget.hint,
+              leftButtonClick: (){
+                Navigator.pop(context);
+              },
+              onChanged: _onTextChange,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  _item(int index) {
+    if (searchModel == null || searchModel.data == null) return null;
+    SearchItem item = searchModel.data[index];
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return WebView(url: item.url,title: "详情",);
+        }));
+      },
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(width: 0.3,color: Colors.grey)),
+        ),
+        child: Row(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Container(
+                  width: 300,
+                  child: Text("${item.word} ${item.districtname ?? ""} ${item.zonename ?? ""}"),
+                ),
+                Container(
+                  width: 300,
+                  child: Text("${item.price ?? ""} ${item.type ?? ""}"),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  
   @override
   void dispose() {
     _scrollController.dispose();

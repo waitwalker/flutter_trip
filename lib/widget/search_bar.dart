@@ -45,7 +45,8 @@ class SearchBar extends StatefulWidget {
     this.speakClick,
     this.inputBoxClick,
     this.onChanged
-});
+  });
+
 
   @override
   State<StatefulWidget> createState() {

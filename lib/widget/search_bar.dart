@@ -35,9 +35,9 @@ class SearchBar extends StatefulWidget {
 
 
   SearchBar({
-    this.enabled,
+    this.enabled = true,
     this.hideLeft,
-    this.searchBarType,
+    this.searchBarType = SearchBarType.normal,
     this.hint,
     this.defaultText,
     this.leftButtonClick,
@@ -80,6 +80,7 @@ class _SearchBarState extends State<SearchBar> {
 
   _genNormalSearch() {
     return Container(
+      padding: EdgeInsets.fromLTRB(6, 5, 10, 5),
       child: Row(
         children: <Widget>[
           // 左边
@@ -119,7 +120,50 @@ class _SearchBarState extends State<SearchBar> {
   }
 
   _genHomeSearch() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(6, 5, 5, 5),
+      child: Row(
+        children: <Widget>[
+          // 左边
+          _wrapTap(
+              Container(
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "上海",
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: _homeFontColor(),
+                      ),
+                    ),
+                    Icon(
+                      Icons.expand_more,
+                      color: _homeFontColor(),
+                      size: 22,
+                    ),
+                  ],
+                ),
+              ),
+              widget.leftButtonClick
+          ),
 
+          // 输入框
+          Expanded(
+            child: _inputBox(),
+            flex: 1,
+          ),
+
+          // 右边搜索按钮
+          _wrapTap(
+              Container(
+                padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                child: Icon(Icons.comment,color: _homeFontColor(),size: 26,)
+              ),
+              widget.leftButtonClick
+          ),
+        ],
+      ),
+    );
   }
 
   _wrapTap(Widget child, void Function() callBack) {
@@ -140,6 +184,12 @@ class _SearchBarState extends State<SearchBar> {
     }
 
     return Container(
+      height: 30,
+      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      decoration: BoxDecoration(
+        color: inputBoxColor,
+        borderRadius: BorderRadius.circular(widget.searchBarType == SearchBarType.normal ? 5: 15),
+      ),
       child: Row(
         children: <Widget>[
           Icon(
@@ -173,6 +223,30 @@ class _SearchBarState extends State<SearchBar> {
                 widget.inputBoxClick
             ),
           ),
+
+          !showClear ?
+            _wrapTap(
+              Icon(
+                Icons.mic,
+                size: 22,
+                color: widget.searchBarType == SearchBarType.normal ? Colors.blue : Colors.grey,
+              ),
+                widget.speakClick
+            ):GestureDetector(
+            onTap: (){
+              print("清空按钮被点击了");
+              setState(() {
+                _controller.clear();
+              });
+              _onChanged("");
+            },
+            child: Icon(
+              Icons.clear,
+              size: 22,
+              color: Colors.grey,
+            ),
+          ),
+
         ],
       ),
     );
@@ -193,4 +267,11 @@ class _SearchBarState extends State<SearchBar> {
       widget.onChanged(text);
     }
   }
+
+  _homeFontColor() {
+    return widget.searchBarType == SearchBarType.home
+        ? Colors.white
+        : Colors.black54;
+  }
+
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:flutter_trip/widget/search_bar.dart';
 
 /**
   *
@@ -58,28 +58,25 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(100),
-            ),
-            Container(
-              child: Text(name,style: TextStyle(fontSize: 30),),
-              height: 200,
-              width: 100,
-              color: Colors.red,
-            ),
-            RaisedButton(
-              onPressed: (){
-                readData();
-              },
-              child: Text("点击"),
-            )
-          ],
-        ),
+      appBar: AppBar(),
+      body: Column(
+        children: <Widget>[
+          SearchBar(
+            hideLeft: true,
+            defaultText: "",
+            hint: "123",
+            leftButtonClick: (){
+              Navigator.pop(context);
+            },
+            onChanged: _onTextChange,
+          ),
+        ],
       ),
     );
+  }
+
+  _onTextChange(text) {
+
   }
 
   @override

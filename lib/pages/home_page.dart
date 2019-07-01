@@ -6,6 +6,8 @@ import 'package:flutter_trip/models/grid_nav_model.dart';
 import 'package:flutter_trip/widget/grid_nav.dart';
 import 'package:flutter_trip/models/home_model.dart';
 import 'package:flutter_trip/widget/local_nav.dart';
+import 'package:flutter_trip/widget/sub_nav.dart';
+
 
 
 // 定义一个常量
@@ -47,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   // 首页数据模型
   HomeModel homeModel;
   List<CommonModel> localNavList = [];
+  List<CommonModel> subNavList = [];
   GridNavModel gridNavModel;
 
   /**
@@ -89,6 +92,7 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         localNavList = homeM.localNavList;
         gridNavModel = homeM.gridNav;
+        subNavList = homeM.subNavList;
       });
     } catch (e) {
       setState(() {
@@ -160,6 +164,12 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
                     child: GridNav(gridNavModel: gridNavModel),
+                  ),
+
+                  // 活动入口
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(7, 0, 7, 4),
+                    child: SubNav(subNavList: subNavList),
                   ),
 
                   Container(

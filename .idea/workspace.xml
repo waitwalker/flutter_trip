@@ -4,25 +4,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="579b650b-504b-4771-9971-1fd94f18ad2f" name="Default Changelist" comment="sub nav completed">
-      <change afterPath="$PROJECT_DIR$/images/type_channelgroup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_channelgs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_channelplane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_channeltrain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_cruise.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_district.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_hotel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_huodong.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_sight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_ticket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/type_travelgroup.png" afterDir="false" />
+    <list default="true" id="579b650b-504b-4771-9971-1fd94f18ad2f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/AssetManifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/search_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/search_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -51,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/pages/search_page.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="226" column="27" selection-start-line="226" selection-start-column="27" selection-end-line="226" selection-end-column="27" />
+            <state relative-caret-position="43">
+              <caret line="193" column="25" selection-start-line="193" selection-start-column="25" selection-end-line="193" selection-end-column="25" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -313,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561950487231</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="rich text">
+      <created>1562034016814</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1562034016816</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -326,7 +316,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="37" y="48" width="1381" height="774" extended-state="0" />
+    <frame x="7" y="48" width="1381" height="774" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24645257" />
@@ -343,7 +333,7 @@
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3292683" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="4" weight="0.3292683" />
-      <window_info anchor="bottom" id="Debug" order="5" visible="true" weight="0.5601173" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.5601173" />
       <window_info anchor="bottom" id="Terminal" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="8" side_tool="true" />
@@ -408,7 +398,8 @@
     <MESSAGE value="local nav add" />
     <MESSAGE value="grid card completed" />
     <MESSAGE value="sub nav completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="sub nav completed" />
+    <MESSAGE value="rich text" />
+    <option name="LAST_COMMIT_MESSAGE" value="rich text" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -741,8 +732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/search_page.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="226" column="27" selection-start-line="226" selection-start-column="27" selection-end-line="226" selection-end-column="27" />
+        <state relative-caret-position="43">
+          <caret line="193" column="25" selection-start-line="193" selection-start-column="25" selection-end-line="193" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

@@ -222,9 +222,7 @@ class _HomePageState extends State<HomePage> {
               searchBarType: appBarAlpha > 0.2 ?
               SearchBarType.homeLight :
               SearchBarType.home,
-              inputBoxClick: (){
-                print("click");
-              },
+              inputBoxClick: _jumpToSearch,
               speakClick: _jumpToSpeak,
               defaultText: kSearch_Bar_Default_Text,
               leftButtonClick: (){

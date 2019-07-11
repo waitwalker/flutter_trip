@@ -13,6 +13,8 @@ import 'package:flutter_trip/widget/sub_nav.dart';
 import 'package:flutter_trip/widget/sales_box.dart';
 import 'package:flutter_trip/widget/loading_container.dart';
 import 'package:flutter_trip/widget/webview.dart';
+import 'package:flutter_trip/pages/speak_page.dart';
+import 'dart:io';
 
 
 const kSearch_Bar_Default_Text = "网红打卡地 景点 酒店 美食";
@@ -33,7 +35,6 @@ const kAppBar_Scroll_Offset = 100;
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _HomePageState();
   }
 }
@@ -274,6 +275,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   _jumpToSpeak() {
-
+    if (Platform.isIOS) {
+      Navigator.push(context, MaterialPageRoute(builder: (context){
+        return SpeakPage();
+      }));
+    }
   }
 }

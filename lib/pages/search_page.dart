@@ -4,6 +4,8 @@ import 'package:flutter_trip/models/search_model.dart';
 import 'package:flutter_trip/widget/webview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_trip/widget/search_bar.dart';
+import 'package:flutter_trip/pages/speak_page.dart';
+import 'dart:io';
 
 /**
   *
@@ -58,16 +60,21 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   void initState() {
-    super.initState();
-     saveData();
+
+    if (widget.keyword != null) {
+      _onTextChange(widget.keyword);
+    }
+
+    saveData();
 
      // 监听滚动
-     _scrollController.addListener((){
-       // 滚动到最大位置
-       if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
-         // 加载更多数据
-       }
-     });
+    _scrollController.addListener((){
+      // 滚动到最大位置
+      if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+        // 加载更多数据
+      }
+    });
+    super.initState();
   }
 
 
@@ -150,6 +157,13 @@ class _SearchPageState extends State<SearchPage> {
               hideLeft: widget.hideLeft,
               defaultText: widget.keyword,
               hint: widget.hint,
+              speakClick: (){
+                if (Platform.isIOS) {
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return SpeakPage();
+                  }));
+                }
+              },
               leftButtonClick: (){
                 Navigator.pop(context);
               },

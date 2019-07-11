@@ -23,7 +23,6 @@ class LocalNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       height: 64,
       decoration: BoxDecoration(

@@ -19,6 +19,13 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		BF64589B22CB3D96009A717E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF64589A22CB3D96009A717E /* CoreTelephony.framework */; };
+		BF64589D22CB3DA6009A717E /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF64589C22CB3DA6009A717E /* libsqlite3.0.tbd */; };
+		BF64589F22CB3DB8009A717E /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF64589E22CB3DB7009A717E /* libiconv.2.4.0.tbd */; };
+		BF6458A122CB3DCF009A717E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6458A022CB3DCF009A717E /* libc++.tbd */; };
+		BF6458A322CB3DE2009A717E /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6458A222CB3DE2009A717E /* libz.1.2.5.tbd */; };
+		BF6458A822CB5322009A717E /* ASRManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6458A722CB5322009A717E /* ASRManager.m */; };
+		BF6458AF22CC310E009A717E /* ASRPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6458AE22CC310E009A717E /* ASRPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +61,15 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF64589A22CB3D96009A717E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BF64589C22CB3DA6009A717E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		BF64589E22CB3DB7009A717E /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		BF6458A022CB3DCF009A717E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		BF6458A222CB3DE2009A717E /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		BF6458A622CB5322009A717E /* ASRManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASRManager.h; sourceTree = "<group>"; };
+		BF6458A722CB5322009A717E /* ASRManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASRManager.m; sourceTree = "<group>"; };
+		BF6458AD22CC310E009A717E /* ASRPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASRPlugin.h; sourceTree = "<group>"; };
+		BF6458AE22CC310E009A717E /* ASRPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASRPlugin.m; sourceTree = "<group>"; };
 		D590F70B6937380BF223040C /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7AF9A70F2F4A53C555072B /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +79,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6458A322CB3DE2009A717E /* libz.1.2.5.tbd in Frameworks */,
+				BF6458A122CB3DCF009A717E /* libc++.tbd in Frameworks */,
+				BF64589F22CB3DB8009A717E /* libiconv.2.4.0.tbd in Frameworks */,
+				BF64589D22CB3DA6009A717E /* libsqlite3.0.tbd in Frameworks */,
+				BF64589B22CB3D96009A717E /* CoreTelephony.framework in Frameworks */,
 				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
 				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
 				72CFC43CB1F904D4542FB186 /* Pods_Runner.framework in Frameworks */,
@@ -88,6 +109,7 @@
 		97C146E51CF9000F007C117D = {
 			isa = PBXGroup;
 			children = (
+				BF64588122CB3CCF009A717E /* plugin */,
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
@@ -130,9 +152,25 @@
 		9B85B57C22392C413A1B48CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF6458A222CB3DE2009A717E /* libz.1.2.5.tbd */,
+				BF6458A022CB3DCF009A717E /* libc++.tbd */,
+				BF64589E22CB3DB7009A717E /* libiconv.2.4.0.tbd */,
+				BF64589C22CB3DA6009A717E /* libsqlite3.0.tbd */,
+				BF64589A22CB3D96009A717E /* CoreTelephony.framework */,
 				D590F70B6937380BF223040C /* Pods_Runner.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF64588122CB3CCF009A717E /* plugin */ = {
+			isa = PBXGroup;
+			children = (
+				BF6458A622CB5322009A717E /* ASRManager.h */,
+				BF6458A722CB5322009A717E /* ASRManager.m */,
+				BF6458AD22CC310E009A717E /* ASRPlugin.h */,
+				BF6458AE22CC310E009A717E /* ASRPlugin.m */,
+			);
+			path = plugin;
 			sourceTree = "<group>";
 		};
 		D8708A88931828F0EB4D2604 /* Pods */ = {
@@ -181,6 +219,7 @@
 				TargetAttributes = {
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = N5ZJ5W7ZL3;
 						LastSwiftMigration = 0910;
 					};
 				};
@@ -293,6 +332,8 @@
 			files = (
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				BF6458A822CB5322009A717E /* ASRManager.m in Sources */,
+				BF6458AF22CC310E009A717E /* ASRPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = S8QB4VV633;
+				DEVELOPMENT_TEAM = N5ZJ5W7ZL3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -383,6 +424,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
+					"$(PROJECT_DIR)/plugin/BDSClientLib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.etiantian.flutterTrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = N5ZJ5W7ZL3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -512,6 +555,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
+					"$(PROJECT_DIR)/plugin/BDSClientLib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.etiantian.flutterTrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,6 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = N5ZJ5W7ZL3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -540,6 +585,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
+					"$(PROJECT_DIR)/plugin/BDSClientLib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.etiantian.flutterTrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";

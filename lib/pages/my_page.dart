@@ -31,6 +31,7 @@ class _MyPageState extends State<MyPage> {
     );
   }
 
+  /// 主题切换
 //  _container(Store<AppState> store) {
 //    return Container(
 //      color: store.state.themeData.primaryColor,

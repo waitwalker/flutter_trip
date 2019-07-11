@@ -7,17 +7,6 @@ import 'package:flutter_trip/widget/search_bar.dart';
 import 'package:flutter_trip/pages/speak_page.dart';
 import 'dart:io';
 
-/**
-  *
-  * @ClassName:      搜索页面
-  * @Description:    类作用描述
-  * @Author:         作者名：liuchuanan
-  * @CreateDate:     2019-06-26 15:02
-  * @UpdateUser:     更新者：
-  * @UpdateDate:     2019-06-26 15:02
-  * @UpdateRemark:   更新说明：
-  * @Version:        1.0
- */
 
 const kTypes = [
   "channelgroup",

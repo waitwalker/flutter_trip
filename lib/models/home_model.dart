@@ -3,20 +3,8 @@ import 'package:flutter_trip/models/config_model.dart';
 import 'package:flutter_trip/models/grid_nav_model.dart';
 import 'package:flutter_trip/models/sales_box_model.dart';
 
-/**
- *
- * @ProjectName:    flutter_trip
- * @Package:        models
- * @Company         etiantian
- * @Description:    类作用描述
- * @Author:         作者名:
- * @CreateDate:     2019-06-26 14:32
- * @UpdateUser:     更新者：
- * @UpdateDate:     2019-06-26 14:32
- * @UpdateRemark:   更新说明：
- * @Version:        1.0
- */
 
+/// 首页model
 class HomeModel {
   final ConfigModel config;//配置
   final List<CommonModel> bannerList;//banner

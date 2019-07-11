@@ -1,5 +1,5 @@
 
-// 旅拍页模型
+/// 旅拍页模型
 class TravelItemModel {
   int totalCount;
   List<TravelItem> resultList;

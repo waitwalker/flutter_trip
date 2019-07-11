@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 const kHomeUrl = "http://www.devio.org/io/flutter_app/json/home_page.json";
 
+/// 首页数据管理
 class HomeDataManager {
 
   static Future<HomeModel> fetch() async {

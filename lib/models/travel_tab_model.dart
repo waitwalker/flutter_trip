@@ -1,5 +1,5 @@
 
-// 旅拍类别
+/// 旅拍类别
 class TravelTabModel {
   String url;
   Params params;

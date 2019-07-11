@@ -1,17 +1,7 @@
 
 import 'package:flutter_trip/models/common_model.dart';
 
-/**
-  *
-  * @ClassName:      首页网格卡片model
-  * @Description:    类作用描述
-  * @Author:         作者名：liuchuanan
-  * @CreateDate:     2019-06-28 11:32
-  * @UpdateUser:     更新者：
-  * @UpdateDate:     2019-06-28 11:32
-  * @UpdateRemark:   更新说明：
-  * @Version:        1.0
- */
+/// 卡片model
 class GridNavModel {
 
   final GridItemModel hotel;

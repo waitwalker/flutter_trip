@@ -1,17 +1,7 @@
 
 import 'package:flutter_trip/models/common_model.dart';
 
-/**
-  *
-  * @ClassName:      活动入口model
-  * @Description:    类作用描述
-  * @Author:         作者名：liuchuanan
-  * @CreateDate:     2019-06-28 11:48
-  * @UpdateUser:     更新者：
-  * @UpdateDate:     2019-06-28 11:48
-  * @UpdateRemark:   更新说明：
-  * @Version:        1.0
- */
+
 class SalesBoxModel {
 
   final String icon;

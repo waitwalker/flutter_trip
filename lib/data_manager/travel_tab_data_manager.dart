@@ -4,6 +4,7 @@ import 'package:flutter_trip/models/travel_tab_model.dart';
 import 'package:http/http.dart' as http;
 
 
+/// 旅拍tab数据管理
 class TravelTabDataManager {
 
   static Future<TravelTabModel> fetch() async {

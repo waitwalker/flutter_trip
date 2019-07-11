@@ -12,7 +12,7 @@ import 'package:flutter_trip/redux/app_state.dart';
 
 
 
-// 底部页面+导航
+/// 底部页面+导航
 class TabNavigator extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 const kSearchUrl = "https://m.ctrip.com/restapi/h5api/searchapp/search?source=mobileweb&action=autocomplete&contenType=json&keyword=";
 
+/// 搜索页面数据管理类
 class SearchDataManager {
 
   static Future<SearchModel> fetch(String url, String text) async {

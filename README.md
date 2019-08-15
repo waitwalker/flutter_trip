@@ -1,7 +1,7 @@
 **Flutter技术及其他交流群** 扫描👇二维码:
 
 
-<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development.JPG?raw=true" style="zoom:50%" />
+<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development.JPG?raw=true" style="zoom80%" />
 
 ![群组](https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development.JPG?raw=true)
 

@@ -1,4 +1,6 @@
 **Flutter技术及其他交流群** 扫描👇二维码:
+
+
 ![群组](https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development.JPG?raw=true)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flutter是一个UI框架,其最重要的一块就是布局,就像官网所说的那样:"Flutter 布局的核心机制是 widgets。在 Flutter 中，几乎所有东西都是 widget —— 甚至布局模型都是 widgets。"采用何种布局方式视情况而定.

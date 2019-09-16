@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trip/redux/local_redux.dart';
+import 'package:flutter_trip/redux/local_reducer.dart';
 import 'package:flutter_trip/redux/theme_data_reducer.dart';
 
 

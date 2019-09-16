@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_trip/redux/app_state.dart';
-import 'package:flutter_trip/redux/local_redux.dart';
+import 'package:flutter_trip/redux/local_reducer.dart';
 import 'package:flutter_trip/redux/theme_data_reducer.dart';
 import 'package:flutter_trip/widget/webview.dart';
 import 'package:random_color/random_color.dart';

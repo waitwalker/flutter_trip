@@ -1,4 +1,4 @@
-**Flutter技术及其他交流群** 扫描👇二维码邀请加入:
+**Flutter技术及其他交流群** 扫描👇二维码邀请加入群组:
 
 
 <img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development_0923.JPG?raw=true" width="350" height="500" align=center />

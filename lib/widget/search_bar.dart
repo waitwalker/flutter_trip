@@ -209,7 +209,7 @@ class _SearchBarState extends State<SearchBar> {
               // 输入框样式
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                border: InputBorder.none,
+                border: OutlineInputBorder(borderSide: BorderSide.none),
                 hintText: widget.hint ?? "",
                 hintStyle: TextStyle(fontSize: 15),
               ),

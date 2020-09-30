@@ -10,7 +10,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'common/theme_manager.dart';
 
 
-
+//Main Function
 void main() => runApp(FlutterReduxApp());
 
 class FlutterReduxApp extends StatelessWidget {
@@ -46,6 +46,7 @@ class FlutterReduxApp extends StatelessWidget {
   }
 }
 
+//Stateless widget
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//Stateful widget
 class MTTLocalizations extends StatefulWidget {
   final Widget child;
 
